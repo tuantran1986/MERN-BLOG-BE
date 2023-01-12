@@ -1,4 +1,5 @@
 import express from 'express';
+import posts from './routers/posts.js';     // cydb - IMPORT - "phải viết đủ JS"
 
 // cấu hình - MIDDLEWARE: bodyParser + cors
 import bodyParser from 'body-parser';
@@ -13,10 +14,14 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '30mb' }));  // giới h�
 app.use(cors());
 
 
+// TÍCH HỢP - ROUTER: "/posts"
+app.use('/posts', posts);
+
 app.get('/', (req, res) => {
     res.send('cấu hình MIDDLEWARE = BODY PARSER + CORS');
 })
 
+// LOCALHOST: 5000
 app.listen(PORT, () => {
     console.log(`server is running on PORT = ${PORT}`);
 });
