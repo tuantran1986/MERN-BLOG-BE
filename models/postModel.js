@@ -12,6 +12,7 @@ mongoose.connect('mongodb://localhost:27017/blogDataBase');
 
 // 3. tao SCHEMA
 const postSchema = new mongoose.Schema({
+    createDate: Date,
     title: String,
     content: String,
     author: String,

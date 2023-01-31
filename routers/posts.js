@@ -5,6 +5,7 @@ const posts = express.Router();
 
 posts.get('/', getPosts);
 // DEMO - CREATE POST 
-posts.get('/create', createPosts);  // chưa sửa METHOD = POST
+// posts.get('/create', createPosts);   // DEMO: FAKE DATA - chưa sửa METHOD = POST
+posts.post('/create', createPosts);     // OK sửa METHOD = POST
 
 export default posts;

@@ -27,15 +27,24 @@ export const createPosts = async (req, res) => {
     try {
 
         // DEMO - CREATE POST : "fakeData"
-        const postList = await postModel.create({
-            title: 'tieu de - create',
-            content: 'noi dung',
-            author: 'tuantran',
-            attachment: 'https://image.thanhnien.vn/w2048/Uploaded/2023/zsfe/2021_06_15/1_mjzy.jpg',
-            likeCount: 168
-        });
-        console.log('createPosts : postList = ', postList);
+            // const postList = await postModel.create({
+            //     title: 'tieu de - create',
+            //     content: 'noi dung',
+            //     author: 'tuantran',
+            //     attachment: 'https://image.thanhnien.vn/w2048/Uploaded/2023/zsfe/2021_06_15/1_mjzy.jpg',
+            //     likeCount: 168
+            // });
+            // console.log('createPosts : postList = ', postList);
     
+        // lấy dữ liệu FE từ = REQ.BODY
+            // console.log('CREATE POST : req = ', req);
+            // console.log('CREATE POST : req.body = ', req.body); 
+        const postList = await postModel.create({
+            ...req.body,
+            createDate: new Date()
+        });
+        console.log('CREATE POST : postList = ', postList);
+
         res.json({
             postList: postList
         });
