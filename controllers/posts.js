@@ -87,3 +87,28 @@ export const updateLikeCount = async (req, res) => {
 
 };
 
+
+// 4.DELETE POSTS: "await model.deleteOne()"
+export const deletePost = async (req, res) => {
+
+    try {
+        // lấy dữ liệu FE từ = REQ.BODY
+            // console.log('DELETE POST : req = ', req);
+            // console.log('DELETE POST : req.body = ', req.body); 
+            // console.log('DELETE POST : req.body._id = ', req.body._id); 
+        const postListDelete = await postModel.deleteOne({
+            _id: req.body._id
+        });
+        // console.log('DELETE POST : postListDelete = ', postListDelete);
+
+        res.status(200).json({
+            postListDelete: postListDelete
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            error: error
+        })
+    }
+
+};
